@@ -1,4 +1,4 @@
-"""Browser tool for creating proximity matrices from raw pile-sort data."""
+
 
 from pathlib import Path
 
@@ -171,7 +171,7 @@ if "matrix_results" in st.session_state:
     st.dataframe(similarity_df, use_container_width=True)
     st.download_button(
         "Download similarity matrix",
-        data=similarity_df.to_csv(index=True, index_label=""),
+        data=similarity_df.to_csv(index=True, index_label="Item"),
         file_name=f"{source_name}_SIM_MATRIX.csv",
         mime="text/csv",
         use_container_width=True,
@@ -185,7 +185,7 @@ if "matrix_results" in st.session_state:
     st.dataframe(dissimilarity_df, use_container_width=True)
     st.download_button(
         "Download dissimilarity matrix",
-        data=dissimilarity_df.to_csv(index=True, index_label=""),
+        data=dissimilarity_df.to_csv(index=True, index_label="Item"),
         file_name=f"{source_name}_DIF_MATRIX.csv",
         mime="text/csv",
         use_container_width=True,
