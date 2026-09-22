@@ -1,50 +1,44 @@
-# pile-sort-mds-tool
+# Pile-sort proximity matrix tool
 
-# Pile-sort and MDS tools
-
-A browser-based tool for creating similarity and dissimilarity matrices from pile-sort data and viewing three-dimensional multidimensional scaling (MDS) solutions.
+A browser-based tool for creating similarity and dissimilarity matrices from raw pile-sort data.
 
 The application is intended for teaching and research use. It runs entirely through a web browser, so users do not need to install Python.
 
-## Functions
+## Input format
 
-### Proximity matrix calculator
+Upload a CSV file in which:
 
-The application converts pile-sort data into:
+* each row represents one participant’s sort;
+* the first column contains a participant or group identifier;
+* each subsequent column represents an item;
+* items assigned the same value within a row were placed in the same pile;
+* there are no blank item cells.
 
-- a similarity matrix;
-- a dissimilarity matrix.
+The pile numbers do not need to have the same meaning for different participants. The tool only compares pile assignments within each participant’s row.
 
-The input must be a CSV file in which:
+An example input file can be downloaded from within the application.
 
-- each row represents one participant;
-- the first column contains a participant or group identifier;
-- each subsequent column represents an item;
-- items assigned the same value were placed in the same pile.
+## Output
 
-### 3D MDS viewer
+The application produces two CSV files:
 
-The application creates an interactive three-dimensional graph from MDS coordinates.
+* **Similarity matrix:** each value shows how many participants placed the two items together.
+* **Dissimilarity matrix:** each value shows how many participants placed the two items in different piles.
 
-The input must be a CSV file in which:
-
-- the first column contains the item labels;
-- the second column contains Dimension 1;
-- the third column contains Dimension 2;
-- the fourth column contains Dimension 3.
-
-The resulting graph can be rotated and enlarged, and users can inspect individual points or download the graph.
+The first column of each output file is labelled `Item` and contains the item names.
 
 ## Suggested workflow
 
-1. Upload the original pile-sort data.
-2. Download the resulting similarity or dissimilarity matrix.
-3. Conduct the MDS analysis in SPSS.
-4. save the SPSS coordinates as a CSV file.
-5. Upload the coordinates to the 3D MDS viewer.
+1. Upload the raw participant pile-sort data.
+2. Calculate the proximity matrices.
+3. Download the required similarity or dissimilarity matrix.
+4. Import the matrix into SPSS.
+5. Conduct the multidimensional scaling analysis in SPSS.
+
+This application creates the proximity matrices only. It does not conduct the MDS analysis.
 
 ## Author
 
-Original Python programs written by Michael Pilling (2024–2025).
+Original Python program written by Michael Pilling (2025).
 
-Browser-based Streamlit version developed from the original programs.
+Browser-based Streamlit version developed from the original program.
